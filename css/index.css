@@ -1,0 +1,167 @@
+body {
+    /* display: flex; */
+    position: relative;
+    height: 100vh;
+    background: url(../imgs/5e727240448103d3.png) no-repeat 0px -40px;
+    background-size: 1540px;
+}
+
+.cover {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.big-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 415px;
+    background-color: rgba(255, 255, 255, .5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);
+}
+
+.big-box .form-log {
+    position: absolute;
+    display: flex;
+    top: -10%;
+    left: 5%;
+    width: 320px;
+    height: 500px;
+    background-color: rgb(246, 233, 163);
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, .1);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+}
+
+.register-box,
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    /* 大写 */
+    text-transform: uppercase;
+    color: #fff;
+    /* 字间距 */
+    letter-spacing: 5px;
+}
+
+input {
+    background-color: transparent;
+    outline: none;
+    width: 70%;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 14px;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+input::placeholder {
+    color: rgb(252, 251, 203);
+}
+
+/* .form-log {
+    transform: translateX(80%);
+} */
+
+.form-log button {
+    width: 70%;
+    margin-top: 15px;
+    height: 35px;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgb(245, 243, 109);
+    letter-spacing: 5px;
+    border-radius: 5px;
+}
+
+.form-log button:active {
+    background-color: rgb(244, 240, 44);
+}
+
+.con-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.con-box.left {
+    left: -2%;
+}
+
+.con-box.right {
+    right: -2%;
+}
+
+
+.left .img {
+    /* position: absolute;
+    top: -45px;
+    left: 50%; */
+    /* transform: translate(-50%); */
+    background: url(../imgs/-41cef824c43bcd15.jpg) no-repeat -210px -8px;
+    background-size: 500px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* 设置 div 元素的不透明级别 */
+    /* opacity: 0.9; */
+}
+
+.right .img {
+    background: url(../imgs/23ec840ff902e4fd.jpg) no-repeat -47px -96px;
+    background-size: 250px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* opacity: 0.9; */
+}
+
+.con-box button {
+    margin-top: 10px;
+    background-color: #fff;
+    color: #f2dd8b;
+    border: 0;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+.con-box p {
+    margin: 0;
+    margin-top: 30px;
+    color: #fff0b4;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.con-box h2 {
+    font-size: 35px;
+    letter-spacing: 2px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+}
