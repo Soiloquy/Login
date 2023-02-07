@@ -8,9 +8,10 @@
     <title>登录|注册</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/index.css">
-    <!-- <script src="js/index.js"></script> -->
-    <script src="js/jQuery.min.js"></script>
-    <script src="js/index_jq.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script> -->
+    <script src="js/index.js"></script>
+    <!-- <script src="js/jQuery.min.js"></script>
+    <script src="js/index_jq.js"></script> -->
 </head>
 
 <body>
@@ -19,17 +20,38 @@
         <div class="form-log">
             <div class="register-box hidden">
                 <h1>register</h1>
-                <input type="text" id="username" placeholder="用户名">
-                <input type="email" id="email" placeholder="邮箱">
+                <input type="text" id="user_name" placeholder="用户名">
+                <div class="yux"><input type="email" id="email" placeholder="邮箱">
+                    <p>发送邮件</p>
+                </div>
                 <input type="password" id="password1" placeholder="密码">
                 <input type="password" id="password2" placeholder="确认密码">
                 <button>注册</button>
+                <span id="wx">
+                    <label for="wx">
+                        <p>微信注册</p>
+                    </label>
+                </span><span id="qq">
+                    <label for="qq">
+                        <p>QQ注册</p>
+                    </label>
+                </span>
             </div>
             <div class="login-box">
                 <h1>log in</h1>
                 <input type="text" id="username" placeholder="用户名">
                 <input type="password" id="pw" placeholder="密码">
                 <button>登录</button>
+                <span id="wx">
+                    <label for="wx">
+                        <p>微信登录</p>
+                    </label>
+                </span>
+                <span id="qq">
+                    <label for="qq">
+                        <p>QQ登录</p>
+                    </label>
+                </span>
             </div>
         </div>
         <div class="con-box left">
@@ -51,6 +73,26 @@
             <button id="register">去注册</button>
         </div>
     </div>
+    <div class="cover_log">
+        <p></p>
+        <span id="erwei_code"></span>
+    </div>
 </body>
+<script>
+    var login = document.querySelector('.login-box').querySelector('button');
+    login.addEventListener('click', () => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://127.0.0.1:4523/m1/1905459-0-default/user?name=aaa&password=111', true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(xhr.response);
+                }
+            }
+        }
+    })
+</script>
 
 </html>
