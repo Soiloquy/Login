@@ -182,10 +182,6 @@ input::placeholder {
 
 
 .left .img {
-    /* position: absolute;
-    top: -45px;
-    left: 50%; */
-    /* transform: translate(-50%); */
     background: url(../imgs/-41cef824c43bcd15.jpg) no-repeat -210px -8px;
     background-size: 500px;
     width: 150px;
