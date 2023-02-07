@@ -37,6 +37,7 @@ window.addEventListener('load', function () {
     let count = document.querySelector('.yux').querySelector('p');
     count.addEventListener('click', () => {
         count.style.color = 'grey';
+        count.style.pointerEvents = 'none';
         var num = 60;
         countDown();
         var time = setInterval(countDown, 1000)
@@ -46,6 +47,7 @@ window.addEventListener('load', function () {
             if (num <= 0) {
                 clearInterval(time);
                 count.innerHTML = '发送邮件';
+                count.style.pointerEvents = 'auto';
             }
         }
     })
