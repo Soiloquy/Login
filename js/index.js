@@ -18,21 +18,63 @@ window.addEventListener('load', function () {
     let qq = document.querySelectorAll('#qq');
     let cover = document.querySelector('.cover_log');
     let erwei = document.querySelector('#erwei_code');
+    let refresh = document.querySelector('.refresh');
     for (let i = 0; i < wx.length; i++) {
         wx[i].addEventListener('click', () => {
+            refresh.style.display = 'none';
             cover.style.display = 'block';
             erwei.innerHTML = '这是微信二维码';
+            var num = 5;
+            countDown();
+            var time = setInterval(countDown, 1000);
+            function countDown() {
+                num--;
+                if (num == 0) {
+                    refresh.style.display = 'block';
+                    clearInterval(time);
+                }
+            }
         })
     }
     for (let i = 0; i < qq.length; i++) {
         qq[i].addEventListener('click', () => {
+            refresh.style.display = 'none';
             cover.style.display = 'block';
             erwei.innerHTML = '这是QQ二维码';
+            var num = 5;
+            countDown();
+            var time = setInterval(countDown, 1000);
+            function countDown() {
+                num--;
+                if (num == 0) {
+                    refresh.style.display = 'block';
+                    clearInterval(time);
+                }
+            }
         })
     }
+    refresh.addEventListener('click', () => {
+        refresh.style.display = 'none';
+        var num = 5;
+        countDown();
+        var time = setInterval(countDown, 1000);
+        function countDown() {
+            num--;
+            if (num <= 0) {
+                refresh.style.display = 'block';
+                // num = 5;
+                clearInterval(time);
+            }
+            if (flag) {
+                clearInterval(time);
+            }
+        }
+    })
     let fork = cover.querySelector('p');
+    var flag = false;
     fork.addEventListener('click', () => {
         cover.style.display = 'none';
+        flag = true;
     })
     let count = document.querySelector('.yux').querySelector('p');
     count.addEventListener('click', () => {
