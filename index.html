@@ -23,7 +23,7 @@
                 <div class="yux"><input type="email" id="email" placeholder="邮箱">
                     <p>发送邮件</p>
                 </div>
-                <input type="text" id="user_name" placeholder="验证码">
+                <input type="text" id="securtiry_code" placeholder="验证码">
                 <!-- <input type="password" id="password1" placeholder="密码">
                 <input type="password" id="password2" placeholder="确认密码"> -->
                 <button>注册</button>
@@ -80,19 +80,98 @@
 </body>
 <script>
     var login = document.querySelector('.login-box').querySelector('button');
+    var register = document.querySelector('.register-box').querySelector('button');
+    // login.addEventListener('click', () => {
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('POST', 'http://127.0.0.1:4523/m1/1905459-0-default/user?name=aaa&password=111', true);
+    //     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    //     xhr.send();
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4) {
+    //             if (xhr.status >= 200 && xhr.status < 300) {
+    //                 console.log(xhr.response);
+    //             }
+    //         }
+    //     }
+    // })
     login.addEventListener('click', () => {
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://127.0.0.1:4523/m1/1905459-0-default/user?name=aaa&password=111', true);
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+
+        var baseUrl = "http://127.0.0.1:4523/m1/1905459-0-default";
+        // var studentno =  document.getElementById('studentno').value 
+        // var username =  document.getElementById('username').value
+        // var main =  document.getElementById('main')
+        var username = document.querySelector('#username').value;
+        var pw = document.querySelector('#pw').value;
+        console.log(pw);
+        // 1.创建Ajax对象
+        var xhr = null;
+        try {
+            xhr = new XMLHttpRequest();
+        } catch (error) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // 2.调用open
+        xhr.open("get", `${baseUrl}/user?username=` + username + `&password=` + pw, true);
+        // 3.调用send
         xhr.send();
+        // 4.等待数据响应
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    console.log(xhr.response);
+            if (xhr.readyState == 4) {
+                // 判断状态码是否为200
+                if (xhr.status == 200) {
+
+                    const res = JSON.parse(xhr.responseText)
+                    console.log(res);
+                    console.log(res.username)
+                    // main.innerText = res.username
+                } else {
+                    alert('不存在此用户');
                 }
             }
         }
     })
+    //POST请求
+
+    register.addEventListener('click', () => {
+
+
+        var baseUrl = "http://127.0.0.1:4523/m1/1905459-0-default";
+
+
+        var email = document.getElementById('email').value
+        var secur = document.getElementById('securtiry_code').value;
+        // console.log(secur);
+        // var main = document.getElementById('main')
+        // 1.创建Ajax对象
+        var xhr = null;
+        try {
+            xhr = new XMLHttpRequest();
+        } catch (error) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // 2.调用open
+        xhr.open("post", `${baseUrl}/user`, true);
+        // 3.调用send
+        xhr.send("username=" + email + "&securtiry_code=" + secur);
+        // 4.等待数据响应
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                // 判断状态码是否为200
+                if (xhr.status == 200) {
+
+                    const res = JSON.parse(xhr.responseText)
+                    console.log(res);
+                    console.log(res.username)
+                    // main.innerText = res.username
+                } else {
+                    alert("Error:" + xhr.status);
+                }
+            }
+
+        }
+    })
+
 </script>
 
 </html>
